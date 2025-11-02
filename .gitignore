@@ -71,6 +71,7 @@ node_modules/
 # Backup files
 *_backup*.html
 *_back.html
+*_back.png
 *.back
 
 # Memo files
