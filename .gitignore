@@ -67,3 +67,11 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Backup files
+*_backup*.html
+*_back.html
+*.back
+
+# Memo files
+*メモ.txt
