@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>いっしょに寺子屋</title>
+  <style>
+    /* 全体リセット */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background-color: #fefdf9;
+      color: #333;
+    }
+    /* ヘッダーを不可視化 */
+    .site-header {
+      display: none !important;
+    }
+    /* 画像のスタイル */
+    .image-container {
+      text-align: center;
+      margin: 15px auto;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .image-container img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    /* メインコンテンツ */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+      background: #fff;
+      padding: 20px;
+      border-left: 6px solid #81c784;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .section h2 {
+      margin-bottom: 10px;
+      color: #388e3c;
+    }
+    .section p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin: 40px 0;
+    }
+    a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+        /* ラッパー要素（a 要素）に黒背景を付ける */
+    .x-logo{
+      display:inline-flex;           /* 中の <img> を中央寄せ */
+      align-items:center;
+      justify-content:center;
+      background:#000;               /* ← 背景だけ黒 */
+      padding:4px;                   /* 公式ガイド推奨：ロゴと同じ幅ぶん余白 */
+      line-height:0;                 /* 行間をゼロにして余計な隙間を消す */
+      border-radius:4px;             /* 角丸はお好みで */
+    }
+
+    .x-logo img{
+      display:block;                 /* 余白を算出しやすくするため */
+      width:24px; height:24px;       /* サイズは任意。ここを変えたら padding も調整 */
+    }
+
+    /* タブナビゲーション */
+    .tab-navigation {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      margin: 0;
+      padding: 10px 0;
+    }
+    .tab-buttons {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .tab-button {
+      padding: 12px 20px;
+      background: #f0f0f0;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      color: #555;
+      transition: all 0.3s;
+      border-radius: 6px;
+      flex: 1;
+      min-width: 100px;
+    }
+    .tab-button:hover {
+      background: #e0e0e0;
+      color: #388e3c;
+    }
+    .tab-button.active {
+      background: #81c784;
+      color: #fff;
+      font-weight: bold;
+    }
+    /* タブコンテンツ */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .section ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    .section li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* レスポンシブ対応 */
+    @media (max-width: 600px) {
+      .tab-button {
+        font-size: 14px;
+        padding: 10px 12px;
+        min-width: 70px;
+      }
+    }
+
+    /* テーブルスタイル */
+    .link-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .link-table th {
+      background: #81c784;
+      color: #fff;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+      border-bottom: 2px solid #66bb6a;
+    }
+    .link-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .link-table tr:last-child td {
+      border-bottom: none;
+    }
+    .link-table tr:hover {
+      background: #f5f5f5;
+    }
+    .link-table a {
+      color: #1976d2;
+      word-break: break-all;
+    }
+    .genre-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    @media (max-width: 600px) {
+      .link-table {
+        font-size: 14px;
+      }
+      .link-table th,
+      .link-table td {
+        padding: 8px 6px;
+      }
+      .genre-badge {
+        font-size: 12px;
+        padding: 3px 8px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー（不可視化） -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>いっしょに寺子屋</h1>
+      <p>「できる」がふえる！自信が芽生える。</p>
+    </div>
+  </header>
+
+  <!-- タブナビゲーション -->
+  <div class="tab-navigation">
+    <div class="tab-buttons">
+      <button class="tab-button active" onclick="switchTab('main')">メイン</button>
+      <button class="tab-button" onclick="switchTab('thought')">思い</button>
+      <button class="tab-button" onclick="switchTab('schedule')">活動予定</button>
+      <button class="tab-button" onclick="switchTab('links')">外部リンク</button>
+    </div>
+  </div>
+
+  <!-- 画像をタブの下に配置 -->
+  <div class="image-container">
+    <img src="terakoya.png" alt="学習支援イメージ">
+  </div>
+
+  <!-- メインコンテンツ -->
+
+  <div class="container">
+
+    <!-- メインタブ -->
+    <div id="main-tab" class="tab-content active">
+      <div class="section">
+        <h2>朝霞市で無料の学習支援</h2>
+        <p>朝霞市で無料の学習支援の取り組みを始めます。小中学生の子どもたちの学習支援を<strong>無料</strong>で行います。</p>
+        <p>特に、学校での学習の取り戻し、学校に行けない事情がある子の学習のキャッチアップなど、それぞれのペースに合わせて少しずついっしょに伴走します。</p>
+        <p>今は外に出られないとか人と会うのが嫌だというお子さんも、オンラインでお話ししたり、ゲームや遊びや好きなことから始めていきたいと思います。ご相談ください。</p>
+      </div>
+
+      <div class="section">
+        <h2>場所・日時</h2>
+        <p><strong>弁財市民センター：</strong><a href="https://maps.app.goo.gl/Ks7VSedfNtpjm1bh9" target="_blank">地図を見る</a><br>
+        <strong>溝沼市民センター：</strong><a href="https://maps.app.goo.gl/7fTmjGZ8hKZvHDSu6" target="_blank">地図を見る</a>
+        <p><strong>日時：</strong>ほぼ毎週土曜日 9:00〜12:00</p>
+        <p><strong>※詳しくは<a href="#" onclick="switchTab('schedule'); return false;" style="color: #1976d2; text-decoration: underline;">活動予定</a>をご覧ください。</strong></p>
+      </div>
+
+    </div>
+
+    <!-- 思いタブ -->
+    <div id="thought-tab" class="tab-content">
+      <div class="section">
+        <h2>思い</h2>
+        <p>私の子ども2人も不登校を経験しました。3女も行き渋りがあります。学校の勉強ができることは必ずしも幸せになることとは直結しませんが、しかし立ち直ってからも、授業のキャッチアップや入試の時には、数年間のブランクは大きな壁になることも経験しました。</p>
+        <p>いろいろな進路・歩む道があるとしても、自分で学ぶ力は一生を通して必要とされる時代です。</p>
+        <p>少しずつ、自分のペースで「できる」「わかる」「面白い」という感触を味わうことをお手伝いできれば幸いです。</p>
+      </div>
+
+      <div class="section">
+        <h2>目指したいこと</h2>
+        <ul>
+          <li>やればできるを体験して自信をつけること</li>
+          <li>この世界を知ることは面白いと感じてもらうこと</li>
+          <li>自分の力を伸ばせると感じてもらえること</li>
+          <li>自分の考えや感情をうまく伝えられること</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 活動予定タブ -->
+    <div id="schedule-tab" class="tab-content">
+      <div class="section">
+        <h2>活動内容</h2>
+
+        <h3>対象となるお子さん</h3>
+        <ul>
+          <li>小中学生</li>
+          <li>自信をなくしているお子さん</li>
+          <li>学校以外でのびのびできる場所を探しているお子さん</li>
+          <li>学習のキャッチアップがしたいお子さん</li>
+        </ul>
+
+        <h3>3つの活動時間</h3>
+        <p><strong>わくわくタイム</strong><br>
+        自分の好きなこと・得意なことに取り組む時間</p>
+
+        <p><strong>がんばるタイム</strong><br>
+        宿題・ワーク・わからないことを質問できる時間</p>
+
+        <p><strong>ゲームタイム</strong><br>
+        みんなでボードゲームやカードゲームで楽しみます</p>
+      </div>
+
+      <div class="section">
+        <h2>活動予定</h2>
+        <table class="link-table">
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>時間</th>
+              <th>場所</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025年11月1日（土）</td>
+              <td>14:00-16:00</td>
+              <td>弁財市民センター会議室</td>
+            </tr>
+            <tr>
+              <td>2025年11月8日（土）</td>
+              <td>9:00-12:00</td>
+              <td>溝沼市民センター会議室</td>
+            </tr>
+            <tr>
+              <td>2025年11月15日（土）</td>
+              <td>9:00-12:00</td>
+              <td>弁財市民センター会議室</td>
+            </tr>
+            <tr>
+              <td>2025年11月22日（土）</td>
+              <td>9:00-12:00</td>
+              <td>弁財市民センター和室</td>
+            </tr>
+            <tr>
+              <td>2025年11月29日（土）</td>
+              <td>9:00-12:00</td>
+              <td>弁財市民センター和室</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 外部リンクタブ -->
+    <div id="links-tab" class="tab-content">
+      <div class="section">
+        <h2>外部リンク</h2>
+        <p>お世話になった団体や、朝霞市周辺の関連団体・活動をご紹介します。</p>
+
+        <table class="link-table">
+          <thead>
+            <tr>
+              <th>団体名</th>
+              <th>ジャンル</th>
+              <th>リンク</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>フリースクールコンコン</td>
+              <td><span class="genre-badge">フリースクール</span></td>
+              <td><a href="https://teacherteacher.studio.site/school" target="_blank" rel="noopener">サイトを見る</a></td>
+            </tr>
+            <tr>
+              <td>オフトコ</td>
+              <td><span class="genre-badge">親の会</span></td>
+              <td><a href="https://www.instagram.com/off.toko/" target="_blank" rel="noopener">Instagramを見る</a></td>
+            </tr>
+            <tr>
+              <td>あさかプレーパークの会</td>
+              <td><span class="genre-badge">子どもの居場所</span></td>
+              <td><a href="https://app.45web.net/" target="_blank" rel="noopener">サイトを見る</a></td>
+            </tr>
+            <tr>
+              <td>ぷらっとほーむグループ埼玉県</td>
+              <td><span class="genre-badge">親の会</span></td>
+              <td><a href="https://www.instagram.com/plathome.group.futoukou/" target="_blank" rel="noopener">Instagramを見る</a></td>
+            </tr>
+            <tr>
+              <td>跡見学園女子大学 不登校を考える親の会</td>
+              <td><span class="genre-badge">親の会</span></td>
+              <td><a href="https://www.atomi.ac.jp/univ/shinri/parent/" target="_blank" rel="noopener">サイトを見る</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; いっしょに寺子屋
+    </div>
+  </div>
+
+  <script>
+    // 共通のお問い合わせセクションHTML
+    function getContactSection() {
+      return `
+      <div class="section">
+        <h2>お問い合わせ</h2>
+        <p><strong>詳しくはこちらのフォームからお問い合わせください：</strong></p>
+        <p><a href="https://forms.gle/YBTYdDraBCHULqnF6" target="_blank" rel="noopener">
+          お問い合わせフォームはこちら
+        </a></p>
+        <p>※ 子どもたちだけでなく、ボランティアの先生も募集中です！</p>
+        <p><strong>X（旧Twitter）：</strong><br>
+        最新情報をアップしています
+          <a href="https://x.com/yourhandle" class="x-logo" aria-label="Follow us on X" target="_blank">
+            <img src="logo-white.png" alt="X logo" width="24" height="24">
+          </a>
+        </p>
+      </div>
+      `;
+    }
+
+    // ページ読み込み時に共通セクションを挿入
+    document.addEventListener('DOMContentLoaded', function() {
+      // 各タブの最後に共通のお問い合わせセクションを追加
+      const tabs = ['main-tab', 'schedule-tab', 'links-tab'];
+      tabs.forEach(tabId => {
+        const tab = document.getElementById(tabId);
+        if (tab) {
+          // 既存のお問い合わせセクションを削除
+          const existingContact = tab.querySelector('.section:last-child');
+          if (existingContact && existingContact.querySelector('h2')?.textContent === 'お問い合わせ') {
+            existingContact.remove();
+          }
+          // 共通セクションを追加
+          tab.insertAdjacentHTML('beforeend', getContactSection());
+        }
+      });
+    });
+
+    // タブ切り替え機能
+    function switchTab(tabName) {
+      // すべてのタブコンテンツを非表示
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // すべてのタブボタンを非アクティブ化
+      const tabButtons = document.querySelectorAll('.tab-button');
+      tabButtons.forEach(button => {
+        button.classList.remove('active');
+      });
+
+      // 選択されたタブコンテンツを表示
+      const selectedTab = document.getElementById(tabName + '-tab');
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+
+      // 選択されたタブボタンをアクティブ化
+      event.target.classList.add('active');
+
+      // ページトップにスムーススクロール
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+</html>

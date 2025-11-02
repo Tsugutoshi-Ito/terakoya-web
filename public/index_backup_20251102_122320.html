@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>いっしょに寺子屋</title>
+  <style>
+    /* 全体リセット */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background-color: #fefdf9;
+      color: #333;
+    }
+    /* ヘッダーを不可視化 */
+    .site-header {
+      display: none !important;
+    }
+    /* 画像のスタイル */
+    .image-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .image-container img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    /* メインコンテンツ */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+      background: #fff;
+      padding: 20px;
+      border-left: 6px solid #81c784;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .section h2 {
+      margin-bottom: 10px;
+      color: #388e3c;
+    }
+    .section p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin: 40px 0;
+    }
+    a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+        /* ラッパー要素（a 要素）に黒背景を付ける */
+    .x-logo{
+      display:inline-flex;           /* 中の <img> を中央寄せ */
+      align-items:center;
+      justify-content:center;
+      background:#000;               /* ← 背景だけ黒 */
+      padding:4px;                   /* 公式ガイド推奨：ロゴと同じ幅ぶん余白 */
+      line-height:0;                 /* 行間をゼロにして余計な隙間を消す */
+      border-radius:4px;             /* 角丸はお好みで */
+    }
+
+    .x-logo img{
+      display:block;                 /* 余白を算出しやすくするため */
+      width:24px; height:24px;       /* サイズは任意。ここを変えたら padding も調整 */
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー（不可視化） -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>いっしょに寺子屋</h1>
+      <p>「できる」がふえる！自信が芽生える。</p>
+    </div>
+  </header>
+
+  <!-- 画像をヘッダーの下に配置 -->
+  <div class="image-container">
+    <img src="terakoya.png" alt="学習支援イメージ">
+  </div>
+
+  <!-- メインコンテンツ -->
+  
+  <div class="container">
+    <div class="section">
+      <h2>朝霞市で無料の学習支援</h2>
+      <p>朝霞市で無料の学習支援の取り組みを始めます。小中学生の子どもたちの学習支援を<strong>無料</strong>で行います。</p>
+      <p>特に、学校での学習の取り戻し、学校に行けない事情がある子の学習のキャッチアップなど、それぞれのペースに合わせて少しずついっしょに伴走します。</p>
+      <p>今は外に出られないとか人と会うのが嫌だというお子さんも、オンラインでお話ししたり、ゲームや遊びや好きなことから始めていきたいと思います。ご相談ください。</p>
+    </div>
+
+    <div class="section">
+      <h2>開催情報</h2>
+      <p><strong>場所：</strong>朝霞市弁財市民センター<a href="https://maps.app.goo.gl/Ks7VSedfNtpjm1bh9">地図</a></p>
+      <p><strong>日時：</strong>毎週土曜日 9:00〜12:00 </p>
+    </div>
+
+    <div class="section">
+      <h2>お問い合わせ</h2>
+      <p><strong>詳しくはこちらのフォームからお問い合わせください：</strong>
+      <p><a href="https://forms.gle/YBTYdDraBCHULqnF6" target="_blank" rel="noopener">
+      お問い合わせフォームはこちら
+      </a>
+      <p>※ 子どもたちだけでなく、ボランティアの先生も募集中です！</p>
+    </div>
+    
+    <div class="section">
+      <h2>思い</h2>
+      <p>私の子ども2人も不登校を経験しました。3女も行き渋りがあります。学校の勉強ができることは必ずしも幸せになることとは直結しませんが
+      　しかし立ち直ってからも、授業のキャッチアップや入試の時には、数年間のブランクは大きな壁になることも経験しました。
+      いろいろな進路・歩む道があるとしても、自分で学ぶ力は一生を通して必要とされる時代です。
+      少しずつ、自分のペースで「できる」「わかる」「面白い」という感触を味わうことをお手伝いできれば幸いです。</p>
+      <h2>大切にすること</h2>
+      <ul>
+        <li>やればできる成功体験を積むこと</li>
+        <li>世界を知ることは面白いと感じてもらうこと</li>
+      </ul>
+      <p></p>
+    </div>
+
+    <div class="sns">
+    <p>Xで最新情報をアップしています
+    <!-- Xアカウントへのリンク -->
+    <a href="https://x.com/yourhandle" class="x-logo" aria-label="Follow us on X">
+      <!-- 手元にある白抜き PNG を使う。SVG がなくても問題ありません -->
+      <img src="logo-white.png" alt="X logo" width="24" height="24">
+    </a>
+    </p>
+    </div>
+
+    <div class="footer">
+      &copy; いっしょに寺子屋
+    </div>
+  </div>
+
+</body>
+</html>
