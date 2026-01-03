@@ -47,205 +47,7 @@
     }
   }
   </script>
-  <style>
-    /* 全体リセット */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-      background-color: #fefdf9;
-      color: #333;
-    }
-    /* ヘッダーを不可視化 */
-    .site-header {
-      display: none !important;
-    }
-    /* 画像のスタイル */
-    .image-container {
-      text-align: center;
-      margin: 15px auto;
-      max-width: 800px;
-      padding: 0 20px;
-    }
-    .image-container img {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    /* メインコンテンツ */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .section {
-      margin-bottom: 30px;
-      background: #fff;
-      padding: 20px;
-      border-left: 6px solid #81c784;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .section h2 {
-      margin-bottom: 10px;
-      color: #388e3c;
-    }
-    .section p {
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-    .footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #555;
-      margin: 40px 0;
-    }
-    a {
-      color: #1976d2;
-      text-decoration: none;
-    }
-        /* ラッパー要素（a 要素）に黒背景を付ける */
-    .x-logo{
-      display:inline-flex;           /* 中の <img> を中央寄せ */
-      align-items:center;
-      justify-content:center;
-      background:#000;               /* ← 背景だけ黒 */
-      padding:4px;                   /* 公式ガイド推奨：ロゴと同じ幅ぶん余白 */
-      line-height:0;                 /* 行間をゼロにして余計な隙間を消す */
-      border-radius:4px;             /* 角丸はお好みで */
-    }
-
-    .x-logo img{
-      display:block;                 /* 余白を算出しやすくするため */
-      width:24px; height:24px;       /* サイズは任意。ここを変えたら padding も調整 */
-    }
-
-    /* タブナビゲーション */
-    .tab-navigation {
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      margin: 0;
-      padding: 10px 0;
-    }
-    .tab-buttons {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      gap: 5px;
-      flex-wrap: wrap;
-    }
-    .tab-button {
-      padding: 12px 20px;
-      background: #f0f0f0;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-      color: #555;
-      transition: all 0.3s;
-      border-radius: 6px;
-      flex: 1;
-      min-width: 100px;
-    }
-    .tab-button:hover {
-      background: #e0e0e0;
-      color: #388e3c;
-    }
-    .tab-button.active {
-      background: #81c784;
-      color: #fff;
-      font-weight: bold;
-    }
-    /* タブコンテンツ */
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .section ul {
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-    .section li {
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    /* レスポンシブ対応 */
-    @media (max-width: 600px) {
-      .tab-button {
-        font-size: 14px;
-        padding: 10px 12px;
-        min-width: 70px;
-      }
-    }
-
-    /* テーブルスタイル */
-    .link-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .link-table th {
-      background: #81c784;
-      color: #fff;
-      padding: 12px;
-      text-align: left;
-      font-weight: bold;
-      border-bottom: 2px solid #66bb6a;
-    }
-    .link-table td {
-      padding: 12px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    .link-table tr:last-child td {
-      border-bottom: none;
-    }
-    .link-table tr:hover {
-      background: #f5f5f5;
-    }
-    .link-table a {
-      color: #1976d2;
-      word-break: break-all;
-    }
-    .genre-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      background: #e8f5e9;
-      color: #2e7d32;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-    @media (max-width: 600px) {
-      .link-table {
-        font-size: 14px;
-      }
-      .link-table th,
-      .link-table td {
-        padding: 8px 6px;
-      }
-      .genre-badge {
-        font-size: 12px;
-        padding: 3px 8px;
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -353,23 +155,28 @@
           </thead>
           <tbody>
             <tr>
-              <td>2025年12月6日（土）</td>
-              <td>9:00-12:00</td>
-              <td>朝志ヶ丘市民センター和室１</td>
-            </tr>
-            <tr>
-              <td>2025年12月13日（土）</td>
-              <td>9:00-12:00</td>
-              <td>朝志ヶ丘市民センター和室２</td>
-            </tr>
-            <tr>
-              <td>2025年12月20日（土）</td>
-              <td>9:00-12:00</td>
-              <td>朝志ヶ丘市民センター和室１</td>
-            </tr>
-            <tr>
-              <td>2025年12月27日（土）</td>
+              <td>2026年1月3日（土）</td>
               <td colspan="2" style="text-align: center; color: #999;">おやすみ</td>
+            </tr>
+            <tr>
+              <td>2026年1月10日（土）</td>
+              <td>9:00-12:00</td>
+              <td>溝沼市民センター 会議室</td>
+            </tr>
+            <tr>
+              <td>2026年1月17日（土）</td>
+              <td>9:00-12:00</td>
+              <td>溝沼市民センター 会議室</td>
+            </tr>
+            <tr>
+              <td>2026年1月24日（土）</td>
+              <td>9:00-12:00</td>
+              <td>弁財市民センター 会議室</td>
+            </tr>
+            <tr>
+              <td>2026年1月31日（土）</td>
+              <td>9:00-12:00</td>
+              <td>朝志ヶ丘市民センター 第１和室</td>
             </tr>
           </tbody>
         </table>
@@ -494,6 +301,25 @@
         behavior: 'smooth'
       });
     }
+  </script>
+
+  <!-- Firebase Analytics -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDOEu1L5XzLDYFaNRX9YRVfjV3o1svmrt8",
+      authDomain: "terakoya-5d2e7.firebaseapp.com",
+      projectId: "terakoya-5d2e7",
+      storageBucket: "terakoya-5d2e7.firebasestorage.app",
+      messagingSenderId: "1052157141088",
+      appId: "1:1052157141088:web:a1236ab9bcad25f6baa305",
+      measurementId: "G-4BDM9NBHPN"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
   </script>
 
 </body>
