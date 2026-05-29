@@ -73,6 +73,22 @@ a {
   width:24px; height:24px;       /* サイズは任意。ここを変えたら padding も調整 */
 }
 
+/* Instagramロゴ */
+.instagram-logo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  padding:4px;
+  line-height:0;
+  border-radius:4px;
+}
+
+.instagram-logo img{
+  display:block;
+  width:24px; height:24px;
+}
+
 /* タブナビゲーション */
 .tab-navigation {
   background: #fff;
