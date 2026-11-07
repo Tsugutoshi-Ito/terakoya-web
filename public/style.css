@@ -186,6 +186,33 @@ a:hover {
   color: #1976d2;
   word-break: break-all;
 }
+/* スペシャルイベント */
+.event-image {
+  text-align: center;
+  margin: 20px 0;
+}
+.event-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.event-apply-label,
+.event-apply {
+  text-align: center;
+}
+.event-apply-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.event-apply-button:hover {
+  background-color: #1565c0;
+  text-decoration: none;
+}
 .genre-badge {
   display: inline-block;
   padding: 4px 12px;
